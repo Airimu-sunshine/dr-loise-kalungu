@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Loise Kalungu | Clinical Psychologist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE0;
+    --green: #243325;
+    --green-mid: #3A5240;
+    --green-light: #5C7A62;
+    --gold: #B8904A;
+    --gold-light: #D4AA6A;
+    --text: #1E1E1E;
+    --text-mid: #4A4A4A;
+    --text-light: #7A7A7A;
+    --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    transition: all 0.5s ease;
+  }
+  nav.scrolled {
+    background: rgba(250,247,242,0.96);
+    backdrop-filter: blur(12px);
+    padding: 16px 60px;
+    border-bottom: 1px solid rgba(184,144,74,0.15);
+    box-shadow: 0 2px 40px rgba(47, 67, 48, 0.06);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--green);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--cream) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    transition: background 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--green);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 60px 80px 60px;
+    position: relative; z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 36px;
+  }
+  .hero-badge::before {
+    content: ''; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(250,247,242,0.6);
+    max-width: 420px;
+    margin-bottom: 48px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    color: rgba(250,247,242,0.7);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.3s;
+  }
+  .btn-outline:hover { color: var(--gold-light); }
+  .btn-outline svg { transition: transform 0.3s; }
+  .btn-outline:hover svg { transform: translateX(4px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img-wrapper {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #3A5240 0%, #1a2b1b 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-img-wrapper::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--green) 0%, transparent 30%);
+  }
+  .hero-silhouette {
+    width: 80%;
+    height: 85%;
+    background: linear-gradient(180deg, rgba(92,122,98,0.3) 0%, rgba(36,51,37,0.8) 100%);
+    border-radius: 60% 60% 0 0;
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: rgba(184,144,74,0.25);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+  .hero-pattern {
+    position: absolute; top: 0; right: 0;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(circle at 70% 30%, rgba(184,144,74,0.08) 0%, transparent 60%);
+  }
+  .hero-stats {
+    position: absolute; bottom: 60px; left: 60px; right: 60px;
+    display: flex; gap: 48px; z-index: 3;
+    border-top: 1px solid rgba(184,144,74,0.2);
+    padding-top: 32px;
+  }
+  .stat-item {
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height :normal 
+
+  }
+}
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section { padding: 100px 60px; }
+  .section-badge {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-badge::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    color: var(--green);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+    height: 560px;
+  }
+  .about-img-main {
+    width: 44%;
+    height: 70%;
+    background: linear-gradient(160deg, #3A5240, #243325);
+    border-radius: 4px;
+    position: absolute; left: 0; top: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: rgba(184,144,74,0.3);
+    letter-spacing: -0.03em;
+  }
+  .about-img-accent {
+    position: absolute;
+    right: 0; bottom: 40px;
+    width: 35%;
+    height: 70%;
+    background: var(--cream-dark);
+    border-radius: 4px;
+    border: 8px solid var(--white);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+  }
+  .about-img-accent .accent-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--green);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .about-img-accent .accent-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: center;
+    padding: 0 16px;
+  }
+  .about-gold-line {
+    position: absolute; top: 30px; left: -20px;
+    width: 3px; height: 80px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .about-content {
+  .about-content .section-title { margin-bottom: 28px; }
+  .about-lead {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+}
+
+  .about-body {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    margin-bottom: 36px;
+    line-height: 1.95;
+    font-weight: 300;
+  }
+  .about-credentials {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .credential-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    background: var(--cream);
+    border-radius: 2px;
+    border-left: 2px solid var(--gold);
+  }
+  .credential-item .cred-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .credential-text { font-size: 0.86rem; color: var(--text-mid); line-height: 1.5; font-weight: 400; }
+  .credential-text strong { color: var(--green); display: block; font-weight: 500; font-size: 0.9rem; margin-bottom: 2px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-header { max-width: 600px; margin-bottom: 60px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--black);
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(36,51,37,0.1);
+    z-index: 2;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-number {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(36,51,37,0.06);
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--cream-dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon { background: var(--gold); }
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .service-desc {
+    font-size: 0.87rem;
+    color: var(--text-light);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .service-duration {
+    margin-top: 24px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ── APPROACH ── */
+  #approach {
+    background: var(--green);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  #approach .section-badge { color: var(--gold-light); }
+  #approach .section-badge::before { background: var(--gold-light); }
+  #approach .section-title { color: var(--cream); }
+  #approach .section-title em { color: var(--gold-light); }
+  .approach-body {
+    font-size: 0.93rem;
+    color: rgba(250,247,242,0.65);
+    line-height: 1.95;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .approach-pillars { display: flex; flex-direction: column; gap: 16px; }
+  .pillar {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 22px;
+    border: 1px solid rgba(184,144,74,0.2);
+    border-radius: 2px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pillar:hover {
+    border-color: var(--gold);
+    background: rgba(184,144,74,0.05);
+  }
+  .pillar-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+  .pillar-text {
+    font-size: 0.9rem;
+    color: rgba(250,247,242,0.8);
+    font-weight: 400;
+  }
+  .approach-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .approach-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,144,74,0.12);
+    padding: 36px 28px;
+    transition: background 0.3s;
+  }
+  .approach-card:hover { background: rgba(255,255,255,0.07); }
+  .approach-card-icon { font-size: 1.5rem; margin-bottom: 16px; }
+  .approach-card-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .approach-card-text {
+    font-size: 0.82rem;
+    color: rgba(250,247,242,0.5);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--cream-dark); text-align: center; }
+  #testimonials .section-badge { justify-content: center; }
+  #testimonials .section-badge::before { display: none; }
+  #testimonials .section-title { margin-bottom: 12px; }
+  .testimonials-sub {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 60px;
+    font-weight: 300;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  .testimonial-card {
+    background: var(--white);
+    padding: 40px 36px;
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(36,51,37,0.08);
+  }
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    line-height: 0.5;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .author-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--cream-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .author-name {
+    font-size: 0.88rem; font-weight: 500; color: var(--green);
+  }
+  .author-detail {
+    font-size: 0.78rem; color: var(--text-light); font-weight: 300;
+  }
+  .stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 3px; }
+
+  /* ── BLOG ── */
+  #blog { background: var(--white); }
+  .blog-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  .blog-link {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none; font-weight: 400;
+    display: flex; align-items: center; gap: 8px;
+    transition: gap 0.3s;
+  }
+  .blog-link:hover { gap: 14px; }
+  .blog-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+  .blog-card {
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(36,51,37,0.08);
+  }
+  .blog-img {
+    height: 220px;
+    background: linear-gradient(135deg, #3A5240, #243325);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; position: relative; overflow: hidden;
+  }
+  .blog-card:nth-child(2) .blog-img { background: linear-gradient(135deg, #5C7A62, #3A5240); }
+  .blog-card:nth-child(3) .blog-img { background: linear-gradient(135deg, #B8904A, #8A6830); }
+  .blog-img-sm { height: 140px; }
+  .blog-body { padding: 28px; }
+  .blog-cat {
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 10px;
+  }
+  .blog-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--green);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .blog-excerpt {
+    font-size: 0.84rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .blog-meta {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--cream); }
+  .faq-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+  .faq-intro { position: sticky; top: 100px; }
+  .faq-intro .section-title { margin-bottom: 20px; }
+  .faq-intro-text {
+    font-size: 0.9rem; color: var(--text-light); line-height: 1.9; font-weight: 300; margin-bottom: 32px;
+  }
+  .faq-contact-note {
+    padding: 20px 24px;
+    background: var(--green);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.75);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .faq-contact-note a { color: var(--gold-light); text-decoration: none; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item {
+    border-bottom: 1px solid rgba(36,51,37,0.1);
+    padding: 28px 0;
+  }
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; gap: 20px;
+  }
+  .faq-q-text {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--green);
+  }
+  .faq-toggle {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(184,144,74,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--gold); flex-shrink: 0;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .faq-item.open .faq-toggle {
+    background: var(--gold); color: var(--white); transform: rotate(45deg);
+  }
+  .faq-answer {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+    padding-top: 18px;
+  }
+
+  /* ── BOOKING ── */
+  #booking {
+    background: var(--green);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #booking::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(184,144,74,0.1) 0%, transparent 70%);
+  }
+  #booking .section-badge { justify-content: center; color: var(--gold-light); }
+  #booking .section-badge::before { display: none; }
+  #booking .section-title { color: var(--cream); margin-bottom: 20px; }
+  .booking-sub {
+    font-size: 0.95rem;
+    color: rgba(250,247,242,0.6);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+  .booking-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 900px;
+    margin: 0 auto 48px;
+  }
+  .booking-option {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,144,74,0.15);
+    padding: 36px 28px;
+    transition: background 0.3s, border-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .booking-option:hover {
+    background: rgba(184,144,74,0.1);
+    border-color: rgba(184,144,74,0.4);
+  }
+  .booking-option-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .booking-option-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--cream);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .booking-option-detail {
+    font-size: 0.8rem;
+    color: rgba(250,247,242,0.5);
+    font-weight: 300;
+  }
+  .booking-cta { display: flex; gap: 16px; justify-content: center; align-items: center; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--white);
+    padding: 16px 40px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost {
+    color: rgba(250,247,242,0.6);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.3s;
+  }
+  .btn-ghost:hover { color: var(--gold-light); }
+  .contact-form {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group select option {
+  background: #1a1a2e;
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+  /* ── FOOTER ── */
+  footer {
+    background: #151E15;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+  .footer-brand {
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--cream);
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+    letter-spacing: 0.02em;
+  }
+}
+
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.4);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 260px;
+    margin-bottom: 28px;
+  }
+  .footer-social { display: flex; gap: 12px; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(184,144,74,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.5);
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,144,74,0.1); }
+  .footer-col {
+  .footer-col-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.45);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-bottom {
+    background: #0E150E;
+    padding: 20px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(184,144,74,0.08);
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(250,247,242,0.3);
+    font-weight: 300;
+  }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a {
+    font-size: 0.75rem;
+    color: rgba(250,247,242,0.3);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+  .delay-5 { animation-delay: 0.65s; }
+
+  /* Observe-based fade */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 28px; }
+    nav.scrolled { padding: 14px 28px; }
+    .nav-links { display: none; }
+    section { padding: 70px 28px; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 120px 28px 60px; }
+    .hero-right { display: none; }
+    .hero-stats { position: relative; bottom: auto; left: auto; right: auto; padding-top: 40px; flex-wrap: wrap; gap: 28px; }
+    #about { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { height: 300px; }
+    .services-grid { grid-template-columns: 1fr; gap: 2px; }
+    #approach { grid-template-columns: 1fr; gap: 40px; }
+    .approach-right { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+    .faq-intro { position: relative; top: auto; }
+    .booking-options { grid-template-columns: 1fr; max-width: 400px; }
+    footer { grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 28px; }
+    .footer-bottom { flex-direction: column; gap: 12px; padding: 16px 28px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">Dr.Loise <span>Kalungu</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#booking" class="nav-cta">Book Session</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge fade-up">Counselling Psychologist · Nairobi</div>
+    <h1 class="hero-title fade-up delay-1">
+      Your mind<br>deserves <em>expert</em><br>care.
+    </h1>
+    <p class="hero-desc fade-up delay-2">
+      Dr. Loise Kalungu offers evidence-based psychological care in a safe, confidential, and compassionate environment — helping you navigate life's complexities with clarity and confidence.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#booking" class="btn-primary">Book a Session</a>
+      <a href="#about" class="btn-outline">
+        Learn More
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">95%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-img-wrapper">
+      <div class="hero-silhouette">LK
+        <img src="images/loloh web 2.jpg" alt="loise-kalungu">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-gold-line"></div>
+    <div class="about-img-main">
+   <img src="images/loloh web 1.jpg" alt="dr loise-kalungu">
+    </div>
+    <div class="about-img-accent">
+      <span class="accent-num">5+</span>
+      <span class="accent-text">Years of Counselling practice</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-badge reveal">About Dr. Kalungu</div>
+    <h2 class="section-title reveal">Healing rooted in<br><em>science & empathy</em></h2>
+    <p class="about-lead reveal">
+      "Every person carries an inner wisdom. My work is to help you find and trust yours."
+    </p>
+    <p class="about-body reveal">
+      Dr. Loise Kalungu is a licensed Counselling psychologist with over a decade of experience supporting individuals, couples, and families through some of life's most challenging moments. Trained in Cognitive Behavioural Therapy, trauma-informed care, and mindfulness-based approaches, she brings both scientific rigour and genuine warmth to every session.
+    </p>
+    <p class="about-body reveal" style="margin-top:-20px">
+      She works with adults and adolescents navigating anxiety, depression, relationship difficulties, stress and personal growth - always with deep respect for each client's unique background and goals.
+    </p>
+    <div class="about-credentials">
+      <div class="credential-item reveal">
+        <span class="cred-icon">🎓</span>
+        <div class="credential-text">
+          <strong>Counselling Psychology</strong>
+          KCA University · Specialisation in CBT & Trauma
+        </div>
+      </div>
+      <div class="credential-item reveal">
+        <span class="cred-icon">📋</span>
+        <div class="credential-text">
+          <strong>Licensed & Registered</strong>
+          Kenya Association of Professional Counsellors (KAPC) · Member in Good Standing
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-badge reveal">What I Offer</div>
+    <h2 class="section-title reveal">Specialised <em>therapy</em><br>for every journey</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <div class="service-icon">🧠</div>
+      <div class="service-name">Individual Therapy</div>
+      <p class="service-desc">One-on-one sessions designed to explore your thoughts, feelings, and behaviours. Evidence-based techniques tailored to your specific needs and goals.</p>
+      <div class="service-duration">45 min · In-person or online</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">02</div>
+      <div class="service-icon">💑</div>
+      <div class="service-name">Couples Therapy</div>
+      <p class="service-desc">Rebuild communication, deepen understanding, and strengthen your relationship. Sessions focused on patterns, needs, and shared goals.</p>
+      <div class="service-duration">90 min · In-person</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">03</div>
+      <div class="service-icon">👨‍👩‍👧</div>
+      <div class="service-name">Family Therapy</div>
+      <p class="service-desc">Navigate family dynamics, improve relationships, and heal together. Systemic approaches that honour every voice in the room.</p>
+      <div class="service-duration">90 min · In-person</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">04</div>
+      <div class="service-icon">🌱</div>
+      <div class="service-name">Anxiety & Depression</div>
+      <p class="service-desc">Specialised CBT and mindfulness-based interventions for anxiety disorders, panic, low mood, and depression — backed by decades of research.</p>
+      <div class="service-duration">50 min · Flexible schedule</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">05</div>
+      <div class="service-icon">🕊️</div>
+      <div class="service-name">Trauma </div>
+      <p class="service-desc">Trauma-focused CBT and compassionate support. Safe, paced work towards processing loss and reclaiming your sense of self.</p>
+      <div class="service-duration">50 min · Extended sessions available</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-number">06</div>
+      <div class="service-icon">💼</div>
+      <div class="service-name">Workplace Wellbeing</div>
+      <p class="service-desc">Burnout prevention, stress management, and executive coaching for professionals. Individual or corporate group sessions available.</p>
+      <div class="service-duration">50 min · Corporate packages</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div>
+    <div class="section-badge reveal">My Approach</div>
+    <h2 class="section-title reveal">Evidence-based care,<br><em>human at its core</em></h2>
+    <p class="approach-body reveal">
+      My practice is grounded in the understanding that effective therapy is both scientifically sound and deeply personal. I draw from a range of evidence-based modalities, always adapting to what works best for you — not a template.
+    </p>
+    <div class="approach-pillars reveal">
+      <div class="pillar"><div class="pillar-dot"></div><span class="pillar-text">Cognitive Behavioural Therapy (CBT)</span></div>
+      <div class="pillar"><div class="pillar-dot"></div><span class="pillar-text">Trauma-Focused & EMDR-informed Care</span></div>
+      <div class="pillar"><div class="pillar-dot"></div><span class="pillar-text">Mindfulness-Based Stress Reduction (MBSR)</span></div>
+      <div class="pillar"><div class="pillar-dot"></div><span class="pillar-text">Acceptance & Commitment Therapy (ACT)</span></div>
+      <div class="pillar"><div class="pillar-dot"></div><span class="pillar-text">Systemic & Family Systems Approaches</span></div>
+    </div>
+  </div>
+  <div class="approach-right reveal">
+    <div class="approach-card">
+      <div class="approach-card-icon">🤝</div>
+      <div class="approach-card-title">Collaborative</div>
+      <div class="approach-card-text">You are the expert on your own life. We work together — your goals guide every session.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-card-icon">🔒</div>
+      <div class="approach-card-title">Confidential</div>
+      <div class="approach-card-text">Everything shared stays in session. A safe, non-judgmental space is non-negotiable.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-card-icon">🎯</div>
+      <div class="approach-card-title">Goal-Oriented</div>
+      <div class="approach-card-text">Clear, measurable outcomes. We track progress and adjust as you grow.</div>
+    </div>
+    <div class="approach-card">
+      <div class="approach-card-icon">🌿</div>
+      <div class="approach-card-title">Culturally Sensitive</div>
+      <div class="approach-card-text">Deeply aware of the African and Kenyan context — therapy that truly fits your world.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-badge">Client Stories</div>
+  <h2 class="section-title reveal">Words from those<br>who've <em>been here</em></h2>
+  <p class="testimonials-sub reveal">All testimonials are shared with full consent and names changed for privacy.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <p class="testimonial-text">Dr. Kalungu changed the way I understand myself. After years of feeling like something was wrong with me, I finally have tools to manage my anxiety and live fully. I can't recommend her enough.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">🌸</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="author-name">Amina W.</div>
+          <div class="author-detail">Anxiety & Depression · 2 years in therapy</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <p class="testimonial-text">Our marriage was on the edge. Six months with Dr. Kalungu and we communicate better than we did when we first met. She has a gift for helping couples truly hear each other.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">💛</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="author-name">David & Njeri M.</div>
+          <div class="author-detail">Couples Therapy · 6 months</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <span class="quote-mark">"</span>
+      <p class="testimonial-text">Losing my father was devastating. Dr. Kalungu helped me grieve properly — not rush past the pain but walk through it. I'm now on the other side with so much more peace.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">🌿</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="author-name">Samuel K.</div>
+          <div class="author-detail"> teen Counselling · 8 months</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-header">
+    <div>
+      <div class="section-badge reveal">From the Practice</div>
+      <h2 class="section-title reveal">Mental health <em>insights</em></h2>
+    </div>
+    <a href="#blog" class="blog-link reveal">All Articles →</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal">
+      <div class="blog-img">🧠</div>
+      <div class="blog-body">
+        <div class="blog-cat">Anxiety</div>
+        <div class="blog-title">Why Your Brain Catastrophises — and What to Do About It</div>
+        <div class="blog-excerpt">The mind has an ancient negativity bias. Understanding why it catastrophises is the first step to taking back control of your thoughts.</div>
+        <div class="blog-meta">Dr. Loise Kalungu · March 2025 · 6 min read</div>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-img blog-img-sm">💔</div>
+      <div class="blog-body">
+        <div class="blog-cat">Relationships</div>
+        <div class="blog-title">The 5 Communication Patterns That Break Relationships</div>
+        <div class="blog-meta">February 2025 · 5 min read</div>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-img blog-img-sm">🌿</div>
+      <div class="blog-body">
+        <div class="blog-cat">Wellbeing</div>
+        <div class="blog-title">Burnout in Kenya: Why We Must Start Talking About It</div>
+        <div class="blog-meta">January 2025 · 4 min read</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-layout">
+    <div class="faq-intro">
+      <div class="section-badge reveal">Questions</div>
+      <h2 class="section-title reveal">Frequently<br><em>asked</em></h2>
+      <p class="faq-intro-text reveal">Everything you need to know before taking the first step. Still have questions? Don't hesitate to reach out.</p>
+      <div class="faq-contact-note reveal">
+        Have a specific question? Email directly at <a href="mailto:hello@loise-kalungu.co.ke">hello@loise-kalungu.co.ke</a> or call <a href="tel:+254711270620">+254 711 270 620</a>.
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What happens in the first session?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">The first session is a consultation — a relaxed conversation where we discuss what brings you to therapy, what you hope to achieve, and whether we're a good fit. There's no pressure and no judgement. You set the pace entirely.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does therapy take?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">It varies significantly by person and presenting concern. Short-term CBT typically runs 8–16 sessions. Others benefit from longer-term work. We assess and review regularly so you always know where you stand.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is everything I share kept confidential?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Absolutely. Confidentiality is a cornerstone of ethical practice. The only exceptions are situations involving risk of serious harm to yourself or others — and even then, you'll always be informed first.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you offer online sessions?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Yes. Individual therapy sessions are available both in-person (Nairobi) and online via a secure, confidential video platform. Couples and family sessions are best done in-person but exceptions can be made.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What are your fees?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Individual sessions are KES 2,000–3,000. Couples and pair sessions are KES 3,500– 5,500. A limited number of reduced-fee slots are available for those with financial constraints. Please enquire confidentially.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do I need a referral from a doctor?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">No referral is needed. You can book directly. If you've been referred by a psychiatrist or GP, do bring any relevant notes — it helps provide the best care from session one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-badge">Take the First Step</div>
+  <h2 class="section-title reveal">Ready to begin<br><em>your journey?</em></h2>
+  <p class="booking-sub reveal">Taking the first step is the hardest — and the most important. Choose how you'd like to connect.</p>
+
+  <div class="booking-options reveal">
+    <a href="tel:+254711270620" class="booking-option">
+      <span class="booking-option-icon">📞</span>
+      <div class="booking-option-name">Call the Practice</div>
+      <div class="booking-option-detail">+254 711 270 620 · Mon–Fri</div>
+    </a>
+    <a href="mailto:therapistkalungu@gmail.com" class="booking-option">
+      <span class="booking-option-icon">✉️</span>
+      <div class="booking-option-name">Send an Email</div>
+      <div class="booking-option-detail">Response within 24 hours</div>
+    </a>
+  </div>
+
+  <!-- NETLIFY CONTACT FORM -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form reveal">
+    <input type="hidden" name="form-name" value="contact" />
+    <p style="display:none;">
+      <input name="bot-field" />
+    </p>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" />
+      </div>
+      <div class="form-group">
+        <label for="service">Service Interested In</label>
+        <select id="service" name="service">
+          <option value="">Select a service...</option>
+          <option value="individual">Individual Therapy</option>
+          <option value="couples">Couples Therapy</option>
+          <option value="family">Family Therapy</option>
+          <option value="anxiety-depression">Anxiety & Depression</option>
+          <option value="trauma-grief">Trauma </option>
+          <option value="workplace">Workplace Wellbeing</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tell Dr. Kalungu a little about what brings you here..."></textarea>
+    </div>
+    <button type="submit" class="btn-gold">Send Message →</button>
+  </form>
+
+  <div class="booking-cta reveal">
+    <a href="#faq" class="btn-ghost">Read FAQ →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="footer-logo">Dr. Loise <span>Kalungu</span></span>
+    <p class="footer-tagline">Licensed Counselling Psychologist based in Nairobi, Kenya. Evidence-based care for the mind and heart.</p>
+    <div class="footer-social">
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">tw</a>
+      <a href="#" class="social-link">ig</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#blog">Insights</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Services</div>
+    <ul class="footer-links">
+      <li><a href="#services">Individual Therapy</a></li>
+      <li><a href="#services">Couples Therapy</a></li>
+      <li><a href="#services">Family Therapy</a></li>
+      <li><a href="#services">Anxiety & Depression</a></li>
+      <li><a href="#services">Trauma </a></li>
+      <li><a href="#services">Workplace Wellbeing</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Contact</div>
+    <ul class="footer-links">
+      <li><a href="tel:+254711270620">+254 711270620 </a></li>
+      <li><a href="mailto:therapistkalungu@gmail.com">therapistkalungu@gmail.com</a></li>
+      <li><a href="#">Westlands, Nairobi</a></li>
+      <li><a href="#">Mon–Fri · 8am–6pm</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 Dr. Loise Kalungu. All rights reserved.</span>
+  <div class="footer-legal">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Ethical Policy</a>
+  </div>
+</div>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
